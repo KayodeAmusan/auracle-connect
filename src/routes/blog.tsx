@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { posts } from "@/lib/posts";
 import mark from "@/assets/logo-mark.png";
 
 export const Route = createFileRoute("/blog")({
