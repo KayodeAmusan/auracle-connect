@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { posts } from "@/lib/posts";
-import mark from "@/assets/logo-mark.png";
+import { SiteHeader } from "@/components/SiteHeader";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
