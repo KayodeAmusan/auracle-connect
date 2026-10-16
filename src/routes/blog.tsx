@@ -23,16 +23,7 @@ export const Route = createFileRoute("/blog")({
 function Blog() {
   return (
     <div className="min-h-screen">
-      <header className="border-b bg-background/90 backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3 md:px-6">
-          <Link to="/" className="shrink-0 rounded-xl p-1">
-            <img src={mark} alt="Auracle Innovations" className="h-9 w-auto md:h-10" />
-          </Link>
-          <Link to="/" className="rounded-full bg-gold-gradient px-5 py-2 text-sm font-semibold text-ink shadow-gold">
-            Back to home
-          </Link>
-        </div>
-      </header>
+      <SiteHeader />
 
       <section className="mx-auto max-w-6xl px-5 py-16 md:px-6 md:py-24">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold">Blog</p>
