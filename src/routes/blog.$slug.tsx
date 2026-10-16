@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { posts } from "@/lib/posts";
-import mark from "@/assets/logo-mark.png";
+import { SiteHeader } from "@/components/SiteHeader";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
@@ -31,16 +31,7 @@ function PostPage() {
 
   return (
     <div className="min-h-screen">
-      <header className="border-b bg-background/90 backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3 md:px-6">
-          <Link to="/" className="shrink-0 rounded-xl p-1">
-            <img src={mark} alt="Auracle Innovations" className="h-9 w-auto md:h-10" />
-          </Link>
-          <Link to="/blog" className="rounded-full bg-gold-gradient px-5 py-2 text-sm font-semibold text-ink shadow-gold">
-            All articles
-          </Link>
-        </div>
-      </header>
+      <SiteHeader />
 
       <article className="mx-auto max-w-3xl px-5 py-16 md:px-6 md:py-24">
         <div className="flex items-center gap-4 text-sm">
