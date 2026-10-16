@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import logo from "@/assets/auracle-logo.png.asset.json";
 import mark from "@/assets/logo-mark.png";
@@ -60,9 +60,10 @@ const groups = [
 ];
 
 const clients = [
-  { name: "Mienebi International School", url: "https://mienebischool.com", host: "mienebischool.com" },
-  { name: "Best Solution International School", url: "https://bestsolution.ng", host: "bestsolution.ng" },
-  { name: "Diamond Standard Group of Schools", url: "https://diamondstandard.ng", host: "diamondstandard.ng" },
+  { name: "Mienebi International School", url: "https://mienebischool.com", host: "mienebischool.com", tag: "School Management System" },
+  { name: "Best Solution International School", url: "https://bestsolution.ng", host: "bestsolution.ng", tag: "School Management System" },
+  { name: "Diamond Standard Group of Schools", url: "https://diamondstandard.ng", host: "diamondstandard.ng", tag: "School Management System" },
+  { name: "Winners' Homes & Generators", url: "https://winnershomesgenerators.com", host: "winnershomesgenerators.com", tag: "Business Website" },
 ];
 
 const marqueeWords = ["UI/UX", "Web Apps", "Mobile Apps", "ERP", "CRM", "Omnichannel", "Cloud", "DevOps", "Networking", "CCTV", "Solar", "Car Trackers", "IT Supplies"];
@@ -110,6 +111,7 @@ function Index() {
             {nav.map(([l, h]) => (
               <a key={h} href={h} className="transition hover:text-gold">{l}</a>
             ))}
+            <Link to="/blog" className="transition hover:text-gold">Blog</Link>
           </nav>
           <a href={`tel:${PHONE}`} className="hidden rounded-full bg-gold-gradient px-5 py-2 text-sm font-semibold text-ink shadow-gold md:inline-block">
             Call us
@@ -129,6 +131,7 @@ function Index() {
             {nav.map(([l, h]) => (
               <a key={h} href={h} onClick={() => setOpen(false)} className="py-2 text-lg font-display">{l}</a>
             ))}
+            <Link to="/blog" onClick={() => setOpen(false)} className="py-2 text-lg font-display">Blog</Link>
             <a href={`tel:${PHONE}`} className="mt-3 rounded-full bg-gold-gradient py-3 text-center font-semibold text-ink">Call {PHONE_DISPLAY}</a>
           </nav>
         </div>
@@ -208,10 +211,10 @@ function Index() {
         <div className="relative mx-auto max-w-6xl px-5 md:px-6">
           <div className="reveal">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold">Selected work</p>
-            <h2 className="mt-3 max-w-2xl text-3xl font-bold sm:text-4xl md:text-5xl">School management, deployed and trusted.</h2>
-            <p className="mt-4 max-w-xl text-ink-foreground/70">Complete school management platforms powering admissions, results, fees and parent communication.</p>
+            <h2 className="mt-3 max-w-2xl text-3xl font-bold sm:text-4xl md:text-5xl">Deployed, live and trusted.</h2>
+            <p className="mt-4 max-w-xl text-ink-foreground/70">School management platforms and business websites we've designed, built and shipped.</p>
           </div>
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {clients.map((c, i) => (
               <a
                 key={c.host}
@@ -221,7 +224,7 @@ function Index() {
                 className="reveal group flex min-h-56 flex-col justify-between rounded-3xl border border-ink-foreground/15 p-7 transition duration-500 hover:-translate-y-2 hover:border-gold hover:shadow-gold"
                 style={{ transitionDelay: `${i * 100}ms` }}
               >
-                <span className="font-display text-sm text-gold">School Management System</span>
+                <span className="font-display text-sm text-gold">{c.tag}</span>
                 <div>
                   <h3 className="text-xl font-bold leading-snug">{c.name}</h3>
                   <p className="mt-3 flex items-center gap-2 text-sm text-ink-foreground/60 group-hover:text-gold">
