@@ -60,9 +60,10 @@ const groups = [
 ];
 
 const clients = [
-  { name: "Mienebi International School", url: "https://mienebischool.com", host: "mienebischool.com" },
-  { name: "Best Solution International School", url: "https://bestsolution.ng", host: "bestsolution.ng" },
-  { name: "Diamond Standard Group of Schools", url: "https://diamondstandard.ng", host: "diamondstandard.ng" },
+  { name: "Mienebi International School", url: "https://mienebischool.com", host: "mienebischool.com", tag: "School Management System" },
+  { name: "Best Solution International School", url: "https://bestsolution.ng", host: "bestsolution.ng", tag: "School Management System" },
+  { name: "Diamond Standard Group of Schools", url: "https://diamondstandard.ng", host: "diamondstandard.ng", tag: "School Management System" },
+  { name: "Winners' Homes & Generators", url: "https://winnershomesgenerators.com", host: "winnershomesgenerators.com", tag: "Business Website" },
 ];
 
 const marqueeWords = ["UI/UX", "Web Apps", "Mobile Apps", "ERP", "CRM", "Omnichannel", "Cloud", "DevOps", "Networking", "CCTV", "Solar", "Car Trackers", "IT Supplies"];
