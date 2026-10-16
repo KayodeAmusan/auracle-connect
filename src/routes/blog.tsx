@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { posts } from "@/lib/posts";
 import mark from "@/assets/logo-mark.png";
 
 export const Route = createFileRoute("/blog")({
@@ -18,37 +19,6 @@ export const Route = createFileRoute("/blog")({
   }),
   component: Blog,
 });
-
-const posts = [
-  {
-    title: "Why every school needs a management system in 2026",
-    tag: "EdTech",
-    date: "Coming soon",
-    excerpt:
-      "From results and fees to parent communication — how a school management platform saves administrators hours every week.",
-  },
-  {
-    title: "Solar backup power: what Lagos businesses should know",
-    tag: "Solar",
-    date: "Coming soon",
-    excerpt:
-      "Sizing inverters and batteries correctly is the difference between reliable backup and constant frustration.",
-  },
-  {
-    title: "CCTV that actually protects your business",
-    tag: "Security",
-    date: "Coming soon",
-    excerpt:
-      "Camera placement, remote viewing and storage — the details that separate a real security system from decoration.",
-  },
-  {
-    title: "ERP vs spreadsheets: when to make the switch",
-    tag: "Business Systems",
-    date: "Coming soon",
-    excerpt:
-      "The warning signs that your growing business has outgrown spreadsheets — and what an ERP changes.",
-  },
-];
 
 function Blog() {
   return (
@@ -75,8 +45,10 @@ function Blog() {
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2">
           {posts.map((p) => (
-            <article
-              key={p.title}
+            <Link
+              key={p.slug}
+              to="/blog/$slug"
+              params={{ slug: p.slug }}
               className="group flex min-h-56 flex-col justify-between rounded-3xl border p-7 transition duration-500 hover:-translate-y-1 hover:border-gold hover:shadow-gold"
             >
               <div className="flex items-center justify-between text-sm">
@@ -84,10 +56,13 @@ function Blog() {
                 <span className="text-muted-foreground">{p.date}</span>
               </div>
               <div className="mt-6">
-                <h2 className="text-xl font-bold leading-snug">{p.title}</h2>
+                <h2 className="text-xl font-bold leading-snug group-hover:text-gold">{p.title}</h2>
                 <p className="mt-3 text-sm text-muted-foreground">{p.excerpt}</p>
+                <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-gold">
+                  Read article <span className="transition group-hover:translate-x-1">→</span>
+                </span>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </section>
