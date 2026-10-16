@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import logo from "@/assets/auracle-logo.png.asset.json";
 import mark from "@/assets/logo-mark.png";
@@ -111,6 +111,7 @@ function Index() {
             {nav.map(([l, h]) => (
               <a key={h} href={h} className="transition hover:text-gold">{l}</a>
             ))}
+            <Link to="/blog" className="transition hover:text-gold">Blog</Link>
           </nav>
           <a href={`tel:${PHONE}`} className="hidden rounded-full bg-gold-gradient px-5 py-2 text-sm font-semibold text-ink shadow-gold md:inline-block">
             Call us
@@ -130,6 +131,7 @@ function Index() {
             {nav.map(([l, h]) => (
               <a key={h} href={h} onClick={() => setOpen(false)} className="py-2 text-lg font-display">{l}</a>
             ))}
+            <Link to="/blog" onClick={() => setOpen(false)} className="py-2 text-lg font-display">Blog</Link>
             <a href={`tel:${PHONE}`} className="mt-3 rounded-full bg-gold-gradient py-3 text-center font-semibold text-ink">Call {PHONE_DISPLAY}</a>
           </nav>
         </div>
